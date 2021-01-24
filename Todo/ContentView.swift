@@ -7,10 +7,54 @@
 
 import SwiftUI
 
+//Model
+struct Activity: Identifiable, Codable {
+    var id = UUID()
+    var title: String
+}
+
+//ViewModel
+class Activities: ObservableObject {
+    @Published var activities = [Activity]()
+}
+
+//View
 struct ContentView: View {
+    
+    @State var items = [Activity(title: "First"), Activity(title: "Second"), Activity(title: "Third")]
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        NavigationView {
+            List {
+                ForEach(items) {item in
+                    VStack(alignment: .leading) {
+                        Text(item.title)
+                            .font(.headline)
+                        Text(item.id.description)
+                            .font(.subheadline)
+                    }
+                }
+                .onDelete(perform: { indexSet in
+                    for index in indexSet {
+                        items.remove(at: index)
+                    }
+                })
+                .onMove(perform: { indices, newOffset in
+                    items.move(fromOffsets: indices, toOffset: newOffset)
+                })
+            }
+            .navigationTitle("Todo List")
+            .toolbar(content: {
+                ToolbarItemGroup(placement: .navigationBarTrailing, content: {
+                    EditButton()
+                    Button(action: {
+                        items.append(Activity(title: "New"))
+                    }, label: {
+                        Image(systemName: "pencil")
+                    })
+                })
+            })
+        }
     }
 }
 
