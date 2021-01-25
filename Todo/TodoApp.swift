@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct TodoApp: App {
+    
+    @StateObject var activitiesManager = Activities()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ActivityView(activityManager: activitiesManager)
         }
     }
 }
