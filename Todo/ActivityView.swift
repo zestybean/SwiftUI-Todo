@@ -14,6 +14,7 @@ struct ActivityView: View {
     
     var body: some View {
         NavigationView {
+            ZStack {
             List {
                 ForEach(activityManager.activities) {item in
                     NavigationLink(
@@ -29,19 +30,25 @@ struct ActivityView: View {
                 }
                 .onDelete(perform: { indexSet in
                     for index in indexSet {
-                        activityManager.activities.remove(at: index)
+                        activityManager.remove(index: index)
                     }
                 })
                 .onMove(perform: { indices, newOffset in
                     activityManager.move(indices: indices, newOffset: newOffset)
                 })
             }
+                if activityManager.activities.count == 0 {
+                    Text("Please add new activity")
+                        .foregroundColor(.gray)
+                }
+            }
+            .listStyle(InsetGroupedListStyle())
             .navigationTitle("Todo List")
             .toolbar(content: {
                 ToolbarItemGroup(placement: .navigationBarTrailing, content: {
                     EditButton()
                     Button(action: {
-                        activityManager.activities.append(Activity(title: "New"))
+                        activityManager.addActivity()
                     }, label: {
                         Image(systemName: "doc.badge.plus")
                     })
@@ -53,6 +60,12 @@ struct ActivityView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ActivityView(activityManager: Activities())
+        Group{
+            ActivityView(activityManager: Activities.fullState())
+                .previewDisplayName("Full")
+            ActivityView(activityManager: Activities.emptyState())
+                .previewDisplayName("Empty")
+        }
+        
     }
 }
