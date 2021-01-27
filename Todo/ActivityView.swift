@@ -16,15 +16,17 @@ struct ActivityView: View {
         NavigationView {
             ZStack {
             List {
-                ForEach(activityManager.activities) {item in
+                ForEach(activityManager.activities) {activity in
                     NavigationLink(
-                        destination: Text("Destination \(item.title)"),
+                        destination: Text("Destination \(activity.title)"),
                         label: {
                             VStack(alignment: .leading) {
-                                Text(item.title)
+                                Text(activity.title)
                                     .font(.headline)
-                                Text(item.id.description)
+                                Text(activity.description)
+                                    .foregroundColor(.gray)
                                     .font(.subheadline)
+                                    
                             }
                         })
                 }

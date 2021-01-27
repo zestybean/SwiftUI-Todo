@@ -46,7 +46,7 @@ class Activities: ObservableObject {
     }
     
     func addActivity() {
-        activities.append(Activity(title: "New"))
+        activities.append(Activity(title: "New", description: "Activity", completion: 1))
     }
     
     static func emptyState() -> Activities {
@@ -57,7 +57,7 @@ class Activities: ObservableObject {
     
     static func fullState() -> Activities {
         let manager = Activities(isForTest: true)
-        manager.activities = [Activity(title: "Full"), Activity(title:"State")]
+        manager.activities = [Activity(title: "Full", description: "Desc1", completion: 1), Activity(title:"State", description: "Desc2", completion: 2)]
         return manager
     }
 }
