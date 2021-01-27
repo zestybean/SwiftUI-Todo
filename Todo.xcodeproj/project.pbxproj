@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C000CAD25C2043E00290E43 /* ActivityLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C000CAC25C2043E00290E43 /* ActivityLinkView.swift */; };
 		2C7F994025BF1D11002150A0 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7F993F25BF1D11002150A0 /* Activity.swift */; };
 		2C7F994525BF1D46002150A0 /* Activities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7F994425BF1D46002150A0 /* Activities.swift */; };
 		2CACD6BA25BC97A5004B6730 /* TodoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CACD6B925BC97A5004B6730 /* TodoApp.swift */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2C000CAC25C2043E00290E43 /* ActivityLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityLinkView.swift; sourceTree = "<group>"; };
 		2C7F993F25BF1D11002150A0 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		2C7F994425BF1D46002150A0 /* Activities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activities.swift; sourceTree = "<group>"; };
 		2CACD6B625BC97A5004B6730 /* Todo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Todo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,6 +78,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C000CAB25C2041300290E43 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2CACD6BB25BC97A5004B6730 /* ActivityView.swift */,
+				2C000CAC25C2043E00290E43 /* ActivityLinkView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		2C7F993C25BF1CEC002150A0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -116,7 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				2CACD6B925BC97A5004B6730 /* TodoApp.swift */,
-				2CACD6BB25BC97A5004B6730 /* ActivityView.swift */,
+				2C000CAB25C2041300290E43 /* Views */,
 				2C7F993E25BF1CFC002150A0 /* ViewModel */,
 				2C7F993C25BF1CEC002150A0 /* Model */,
 				2CACD6BD25BC97A5004B6730 /* Assets.xcassets */,
@@ -283,6 +294,7 @@
 			files = (
 				2C7F994525BF1D46002150A0 /* Activities.swift in Sources */,
 				2C7F994025BF1D11002150A0 /* Activity.swift in Sources */,
+				2C000CAD25C2043E00290E43 /* ActivityLinkView.swift in Sources */,
 				2CACD6BC25BC97A5004B6730 /* ActivityView.swift in Sources */,
 				2CACD6BA25BC97A5004B6730 /* TodoApp.swift in Sources */,
 			);

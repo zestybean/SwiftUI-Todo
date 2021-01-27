@@ -18,7 +18,7 @@ struct ActivityView: View {
             List {
                 ForEach(activityManager.activities) {activity in
                     NavigationLink(
-                        destination: Text("Destination \(activity.title)"),
+                        destination: ActivityLinkView(activityManager: activityManager, activityInstance: activity),
                         label: {
                             VStack(alignment: .leading) {
                                 Text(activity.title)
@@ -40,12 +40,12 @@ struct ActivityView: View {
                 })
             }
                 if activityManager.activities.count == 0 {
-                    Text("Please add new activity")
+                    Text("Please add a new activity.")
                         .foregroundColor(.gray)
                 }
             }
             .listStyle(InsetGroupedListStyle())
-            .navigationTitle("Todo List")
+            .navigationTitle("Activity List")
             .toolbar(content: {
                 ToolbarItemGroup(placement: .navigationBarTrailing, content: {
                     EditButton()
@@ -63,7 +63,7 @@ struct ActivityView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         Group{
-            ActivityView(activityManager: Activities.fullState())
+            ActivityView(activityManager: Activities.filledState())
                 .previewDisplayName("Full")
             ActivityView(activityManager: Activities.emptyState())
                 .previewDisplayName("Empty")

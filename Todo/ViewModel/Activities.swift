@@ -49,15 +49,22 @@ class Activities: ObservableObject {
         activities.append(Activity(title: "New", description: "Activity", completion: 1))
     }
     
+    func returnTitleOfInstance(activityInstance: Activity) -> String {
+        //TODO: FIX THIS!!!
+        return "Try"
+    }
+    
     static func emptyState() -> Activities {
         let manager = Activities(isForTest: true)
         manager.activities = []
         return manager
     }
     
-    static func fullState() -> Activities {
+    static func filledState() -> Activities {
         let manager = Activities(isForTest: true)
         manager.activities = [Activity(title: "Full", description: "Desc1", completion: 1), Activity(title:"State", description: "Desc2", completion: 2)]
         return manager
     }
+    
+    
 }
