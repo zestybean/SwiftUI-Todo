@@ -12,8 +12,17 @@ struct ActivityLinkView: View {
     var activityInstance: Activity
 
     var body: some View {
-        Text(activityInstance.title)
-       
+        VStack{
+            Text(activityInstance.title)
+            Text(activityInstance.description)
+            Text("\(activityInstance.completion)")
+            
+            Button(action: {
+                
+            }, label: {
+                Text("Button")
+            })
+        }
     }
 }
 

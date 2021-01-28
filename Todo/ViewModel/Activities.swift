@@ -49,9 +49,8 @@ class Activities: ObservableObject {
         activities.append(Activity(title: "New", description: "Activity", completion: 1))
     }
     
-    func returnTitleOfInstance(activityInstance: Activity) -> String {
-        //TODO: FIX THIS!!!
-        return "Try"
+    func incrementCompletion(instance: Activity) {
+        //TODO: Possibly with UUID increase the completion with instance
     }
     
     static func emptyState() -> Activities {
