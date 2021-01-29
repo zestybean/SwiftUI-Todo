@@ -48,6 +48,14 @@ class Activities: ObservableObject {
         activities.append(Activity(title: "New", description: "Activity", completion: 1))
     }
     
+    func increaseActivityCompletion(activityInstance: Activity) {
+        if var index = activities.first(where: {$0.id == activityInstance.id}) {
+            index.completion += 1
+        } else {
+            print("Error!")
+        }
+    }
+    
     static func emptyState() -> Activities {
         let manager = Activities(isForTest: true)
         manager.activities = []

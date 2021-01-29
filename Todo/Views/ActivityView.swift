@@ -63,10 +63,12 @@ struct ActivityView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         Group{
+            ActivityView(activityManager: Activities())
+            /*
             ActivityView(activityManager: Activities.filledState())
                 .previewDisplayName("Full")
             ActivityView(activityManager: Activities.emptyState())
-                .previewDisplayName("Empty")
+                .previewDisplayName("Empty")*/
         }
         
     }
