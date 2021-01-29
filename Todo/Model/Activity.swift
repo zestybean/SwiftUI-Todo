@@ -13,4 +13,9 @@ struct Activity: Identifiable, Codable {
     var title: String
     var description: String
     var completion: Int
+    
+    //MARK: MAYBE???
+    mutating func increaseCompletion() {
+        self.completion += 1
+    }
 }

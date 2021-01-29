@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ActivityLinkView: View {
     @ObservedObject var activityManager: Activities
-    var activityInstance: Activity
+    @State var activityInstance: Activity
 
     var body: some View {
         VStack{
@@ -18,7 +18,7 @@ struct ActivityLinkView: View {
             Text("\(activityInstance.completion)")
             
             Button(action: {
-                
+                activityInstance.increaseCompletion()
             }, label: {
                 Text("Button")
             })

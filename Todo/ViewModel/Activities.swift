@@ -20,7 +20,6 @@ class Activities: ObservableObject {
     }
     
     init(isForTest: Bool = false) {
-        
         if isForTest == false {
             if let activities = UserDefaults.standard.data(forKey: "Activities") {
                 let decoder = JSONDecoder()
@@ -47,10 +46,6 @@ class Activities: ObservableObject {
     
     func addActivity() {
         activities.append(Activity(title: "New", description: "Activity", completion: 1))
-    }
-    
-    func incrementCompletion(instance: Activity) {
-        //TODO: Possibly with UUID increase the completion with instance
     }
     
     static func emptyState() -> Activities {
