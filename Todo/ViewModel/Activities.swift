@@ -49,8 +49,10 @@ class Activities: ObservableObject {
     }
     
     func increaseActivityCompletion(activityInstance: Activity) {
-        if var index = activities.first(where: {$0.id == activityInstance.id}) {
-            index.completion += 1
+        if let index = activities.firstIndex(where: {$0.id == activityInstance.id}) {
+            #warning("This needs work!")
+            
+            activities[index].activityCompleted()
         } else {
             print("Error!")
         }
